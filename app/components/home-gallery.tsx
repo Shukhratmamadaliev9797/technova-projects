@@ -33,7 +33,7 @@ function getYouTubeEmbedUrl(url?: string) {
 }
 
 export function HomeGallery({ images, youtubeUrl }: HomeGalleryProps) {
-  const galleryImages = images.slice(0, 6);
+  const galleryImages = images;
   const [previewIndex, setPreviewIndex] = useState(-1);
   const embedUrl = getYouTubeEmbedUrl(youtubeUrl);
 
@@ -50,8 +50,8 @@ export function HomeGallery({ images, youtubeUrl }: HomeGalleryProps) {
 
   return (
     <>
-      <div className="grid h-[512px] w-full grid-cols-12 gap-3">
-        <div className="col-span-7 flex h-full items-center justify-center rounded-sm border border-border bg-card/30">
+      <div className="grid w-full grid-cols-1 gap-3 md:h-[512px] md:grid-cols-12">
+        <div className="flex h-[260px] items-center justify-center rounded-sm border border-border bg-card/30 sm:h-[320px] md:col-span-7 md:h-full">
           {embedUrl ? (
             <iframe
               src={embedUrl}
@@ -67,13 +67,13 @@ export function HomeGallery({ images, youtubeUrl }: HomeGalleryProps) {
           )}
         </div>
 
-        <div className="col-span-5 grid h-full grid-cols-2 grid-rows-3 gap-3">
+        <div className="grid grid-cols-2 gap-3 md:col-span-5 md:h-full md:grid-rows-3">
           {galleryImages.map((src, index) => (
             <button
               type="button"
               key={`${src}-${index}`}
               onClick={() => setPreviewIndex(index)}
-              className="relative min-h-0 overflow-hidden rounded-sm border border-border bg-zinc-100"
+              className="relative h-24 overflow-hidden rounded-sm border border-border bg-zinc-100 sm:h-28 md:h-auto md:min-h-0"
             >
               <Image
                 src={src}
