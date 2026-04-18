@@ -90,7 +90,7 @@ export default async function Home() {
       id: "barakot-project",
       label: "Barakot Admin",
       title: "Barakot - Admin Panel",
-      youtubeUrl: "https://www.youtube.com/watch?v=uCOcioA6dzk",
+      youtubeUrl: "https://youtu.be/jMGUxBgDvqk",
       intro:
         "Barakot - Admin Panel bu Barakot kitob do‘koni uchun 1C dasturi o‘rniga yaratilgan zamonaviy boshqaruv tizimi. Do‘konning kundalik ishlarini soddalashtirib, hamma jarayonni bitta joyda tartibli yuritishga yordam beradi.",
       features: [
