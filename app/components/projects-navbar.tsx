@@ -61,7 +61,7 @@ export function ProjectsNavbar({ items, accentColor }: ProjectsNavbarProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
-      <nav className="flex w-full flex-wrap items-center gap-2 px-6 py-4 md:px-10">
+      <nav className="flex w-full flex-nowrap items-center gap-2 overflow-x-auto px-6 py-4 md:px-10">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -69,7 +69,7 @@ export function ProjectsNavbar({ items, accentColor }: ProjectsNavbarProps) {
               key={item.id}
               href={`#${item.id}`}
               onClick={(event) => handleNavClick(event, item.id)}
-              className="rounded-md border px-4 py-1.5 text-sm font-medium transition-colors"
+              className="shrink-0 rounded-md border px-4 py-1.5 text-sm font-medium transition-colors"
               style={{
                 borderColor: isActive ? accentColor : "var(--border)",
                 backgroundColor: isActive ? accentColor : "transparent",
