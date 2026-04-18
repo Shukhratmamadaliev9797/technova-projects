@@ -21,6 +21,19 @@ const IMAGE_EXTENSIONS = new Set([
   ".svg",
 ]);
 
+type Project = {
+  id: string;
+  label: string;
+  title: string;
+  folder: string;
+  intro: string;
+  features: string[];
+  youtubeUrl?: string;
+  maxImages?: number;
+  mainImage?: string;
+  useNaturalImageSize?: boolean;
+};
+
 async function getGalleryImages(folderName: string) {
   const rootGalleryDir = path.join(process.cwd(), "public", "gallery");
   const projectDir = path.join(rootGalleryDir, folderName);
@@ -72,7 +85,7 @@ async function getGalleryImages(folderName: string) {
 
 export default async function Home() {
   const projectAccentColor = "lab(66.6158% 39.9115 67.7677)";
-  const projects = [
+  const projects: Project[] = [
     {
       id: "barakot-project",
       label: "Barakot Admin",
@@ -232,7 +245,7 @@ export default async function Home() {
       ],
       folder: "telegram-bots",
     },
-  ] as const;
+  ];
   const projectsWithImages = await Promise.all(
     projects.map(async (project) => ({
       ...project,
