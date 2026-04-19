@@ -92,7 +92,9 @@ async function getGalleryImages(folderName: string) {
     );
     const projectImages = projectImagesWithMeta
       .sort(sortByNewestFirst)
-      .map((image) => `/gallery/${folderName}/${encodeURIComponent(image.name)}`);
+      .map(
+        (image) => `/gallery/${folderName}/${encodeURIComponent(image.name)}`,
+      );
 
     if (projectImages.length > 0) {
       return projectImages;
@@ -181,8 +183,8 @@ export default async function Home() {
     {
       id: "mojiza-toys",
       label: "Mojiza Toys",
-      title: "Mojiza Toys",
-      youtubeUrl: undefined,
+      title: "Mojiza Toys - POS tizim",
+      youtubeUrl: "https://youtu.be/gXam3sNM4I4",
       intro:
         "Mojiza Toys bu o‘yinchoq do‘koni uchun tayyorlangan boshqaruv tizimi. Savdo, o‘yinchoq tayyorlash uchun qismlar, ta’minotchilar bilan hisob-kitob va umumiy hisobotlar bitta joyda yuritiladi.",
       features: [
@@ -198,8 +200,8 @@ export default async function Home() {
     {
       id: "qurilish",
       label: "Qurilish",
-      title: "Qurilish",
-      youtubeUrl: undefined,
+      title: "Qurilish firmalar uchun tizim",
+      youtubeUrl: "https://youtu.be/bTybcXGmw4k",
       intro:
         "Qurilish bu qurilish korxonalari uchun tayyorlangan boshqaruv tizimi. Unda qurayotgan binolaringizni ro‘yxatga olib, kvartiralarni sotish va barcha jarayonlarni bitta joyda tartibli boshqarish mumkin.",
       features: [
@@ -213,10 +215,27 @@ export default async function Home() {
       folder: "Qurilish",
     },
     {
+      id: "vpos",
+      label: "VPOS",
+      title: "VPOS - Restaurant va Cafe POS tizim",
+      youtubeUrl: "https://youtu.be/yCncxisv-gQ",
+      intro:
+        "VPOS bu restoran va kafelar uchun tayyorlangan buyurtma tizimi. Zal ichidagi buyurtmalarni tez kiritish, stollarga biriktirish va oshxonaga uzatish jarayonlari bitta joyda qulay boshqariladi.",
+      features: [
+        "Ofitsiant buyurtmalarni tez kiritib, kerakli stolga biriktirishi mumkin",
+        "Taom buyurtmalarini tartibli yuborish va xizmat jarayonini tezlashtirish",
+        "Kunlik savdo va buyurtmalarni bir joyda ko‘rib borish",
+        "Ishchi-hodimlar uchun foiz asosida oylik hisobini yuritish",
+        "Xizmat sifatini oshirish uchun jarayonlarni tizimli boshqarish",
+        "Shunga o‘xshash POS tizimini sizning restoran yoki kafeingizga moslab tayyorlab beramiz",
+      ],
+      folder: "vpos",
+    },
+    {
       id: "caramel",
       label: "Caramel",
-      title: "Caramel",
-      youtubeUrl: undefined,
+      title: "Caramel - Shirinlik do'kon tizim",
+      youtubeUrl: "https://youtu.be/gdwCKWvTtNg",
       intro:
         "Caramel bu shirinlik va qandolat do‘konlari uchun tayyorlangan amaliy tizim. Do‘konning kundalik savdo jarayonlari bitta joyda tartibli va qulay boshqariladi.",
       features: [
@@ -245,6 +264,23 @@ export default async function Home() {
         "Shunga o‘xshash tizimlarni sizning talablarga moslab noldan tayyorlab beramiz",
       ],
       folder: "Phone-pos",
+    },
+    {
+      id: "bossmilk",
+      label: "Bossmilk POS",
+      title: "Bossmilk POS - Ombor boshqaruv tizim",
+      youtubeUrl: "https://youtu.be/QXgEwSv-Lz0",
+      intro:
+        "Bossmilk POS bu savdo nuqtalari uchun tayyorlangan amaliy boshqaruv tizimi. Savdo, ombor va moliyaviy jarayonlarni bitta joyda tartibli yuritish imkonini beradi.",
+      features: [
+        "Boshqaruv panelida umumiy ko'rsatkichlar va kunlik holatni ko'rish",
+        "Ombor va mahsulot qoldiqlarini nazorat qilish",
+        "Mijozlar bilan ishlash, sotuv yaratish va to'lovlarni yuritish",
+        "Ta'minotchilar bilan hisob-kitob va farqni kuzatish",
+        "Xarajatlar bo'limida chiqimlarni tartibli boshqarish",
+        "Shunga o'xshash POS tizimini sizning biznesingizga moslab tayyorlab beramiz",
+      ],
+      folder: "bossmilk",
     },
     {
       id: "landing-pages",
