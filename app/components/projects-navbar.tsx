@@ -86,7 +86,7 @@ export function ProjectsNavbar({
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
-      <nav className="flex w-full flex-nowrap items-center gap-2 overflow-x-auto px-6 py-4 md:px-10">
+      <nav className="flex w-full max-w-[calc(100%-4.5rem)] flex-nowrap items-center gap-2 overflow-x-auto px-6 py-4 md:max-w-[calc(100%-5rem)] md:px-10">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
