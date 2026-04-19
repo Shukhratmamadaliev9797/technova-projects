@@ -6,9 +6,45 @@ import { HomeGallery } from "./components/home-gallery";
 import { ProjectsNavbar } from "./components/projects-navbar";
 
 export const metadata: Metadata = {
-  title: "Barakot - Admin Panel",
+  title: "Bizneslar uchun yechimlar",
   description:
-    "Barakot - Admin Panel bu kitob savdosi uchun hamma ishni bir joyga yig‘ib bergan sistema.",
+    "Bu sahifada biz clientlar uchun qilgan amaliy loyihalar jamlangan. Sizning biznesingiz uchun ham shunga o'xshash tizimlarni talabingizga moslab tayyorlab beramiz.",
+  keywords: [
+    "loyihalar",
+    "biznes uchun tizimlar",
+    "xizmat taklifi",
+    "Admin Panel",
+    "Online do'kon",
+    "Mobil ilova",
+    "CRM",
+    "Biznes tizimlari",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Bizneslar uchun yechimlar",
+    description:
+      "Biz qilgan loyihalar namunalari va xizmat taklifi: sizga ham shunga o'xshash tizimlar yaratib beramiz.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bizneslar uchun yechimlar",
+    description:
+      "Biznes uchun admin panel, online do'kon, mobil ilova va boshqa tizimlar loyihalari sahifasi.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 const IMAGE_EXTENSIONS = new Set([
@@ -90,7 +126,7 @@ export default async function Home() {
       id: "barakot-project",
       label: "Barakot Admin",
       title: "Barakot - Admin Panel",
-      youtubeUrl: "https://youtu.be/jMGUxBgDvqk",
+      youtubeUrl: "https://youtu.be/RbL_JjKdoyk",
       intro:
         "Barakot - Admin Panel bu Barakot kitob do‘koni uchun 1C dasturi o‘rniga yaratilgan zamonaviy boshqaruv tizimi. Do‘konning kundalik ishlarini soddalashtirib, hamma jarayonni bitta joyda tartibli yuritishga yordam beradi.",
       features: [
@@ -110,7 +146,7 @@ export default async function Home() {
       id: "barakot-online",
       label: "Barakot - Online Do'kon",
       title: "Barakot - Online Do'kon",
-      youtubeUrl: undefined,
+      youtubeUrl: "https://www.youtube.com/watch?v=wejAt6KID_Q",
       intro:
         "Barakot - Online Do'kon bu kitob do‘koni uchun yaratilgan online savdo tizimi. Savdo jarayonlari, buyurtmalar va mijoz bilan ishlash bitta joyda qulay boshqariladi.",
       features: [
@@ -127,7 +163,7 @@ export default async function Home() {
       id: "barakot-app",
       label: "Barakot - Mobil ilova",
       title: "Barakot - Mobil ilova",
-      youtubeUrl: undefined,
+      youtubeUrl: "https://youtu.be/fN35GoRjhVo",
       mainImage: "/gallery/barakot-app/IMAGE%202026-04-18%2008%3A27%3A37.jpg",
       useNaturalImageSize: true,
       intro:
@@ -197,7 +233,7 @@ export default async function Home() {
       id: "phone-pos",
       label: "Telfon do'konlari uchun tizim",
       title: "Telfon do'konlari uchun tizim",
-      youtubeUrl: undefined,
+      youtubeUrl: "https://youtu.be/rrgpf8gQbTw",
       intro:
         "Phone POS bu telefon do‘konlari uchun tayyorlangan boshqaruv tizimi. Savdo, kassa, muddatli to‘lov, ishchilar oyligi va umumiy foyda-hisoblarni bitta joyda tartibli yuritish mumkin.",
       features: [
@@ -255,6 +291,7 @@ export default async function Home() {
   const navItems = projectsWithImages.map((project) => ({
     id: project.id,
     label: project.label,
+    title: project.title,
   }));
   const projectsWithoutVideoSlot = new Set([
     "landing-pages",
@@ -264,7 +301,11 @@ export default async function Home() {
 
   return (
     <>
-      <ProjectsNavbar items={navItems} accentColor={projectAccentColor} />
+      <ProjectsNavbar
+        items={navItems}
+        accentColor={projectAccentColor}
+        defaultTitle="Bizneslar uchun yechimlar"
+      />
 
       <div className="space-y-0 bg-background">
         {projectsWithImages.map((project) => (

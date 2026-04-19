@@ -5,14 +5,20 @@ import { useEffect, useState, type MouseEvent } from "react";
 type ProjectNavItem = {
   id: string;
   label: string;
+  title?: string;
 };
 
 type ProjectsNavbarProps = {
   items: ProjectNavItem[];
   accentColor: string;
+  defaultTitle?: string;
 };
 
-export function ProjectsNavbar({ items, accentColor }: ProjectsNavbarProps) {
+export function ProjectsNavbar({
+  items,
+  accentColor,
+  defaultTitle = "Bizneslar uchun yechimlar",
+}: ProjectsNavbarProps) {
   const [activeId, setActiveId] = useState<string>(items[0]?.id ?? "");
 
   const handleNavClick = (
@@ -29,6 +35,16 @@ export function ProjectsNavbar({ items, accentColor }: ProjectsNavbarProps) {
 
   useEffect(() => {
     if (items.length === 0) return;
+
+    const updateFromHash = () => {
+      const hashId = window.location.hash.replace("#", "");
+      if (hashId && items.some((item) => item.id === hashId)) {
+        setActiveId(hashId);
+      }
+    };
+
+    updateFromHash();
+    window.addEventListener("hashchange", updateFromHash);
 
     const sections = items
       .map((item) => document.getElementById(item.id))
@@ -56,8 +72,17 @@ export function ProjectsNavbar({ items, accentColor }: ProjectsNavbarProps) {
 
     sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", updateFromHash);
+    };
   }, [items]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const currentItem = items.find((item) => item.id === activeId);
+    document.title = currentItem?.title ?? currentItem?.label ?? defaultTitle;
+  }, [activeId, defaultTitle, items]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
