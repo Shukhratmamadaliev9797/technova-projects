@@ -379,6 +379,18 @@ export default async function Home() {
             </section>
           </main>
         ))}
+
+        <footer className="border-t border-border/70 px-6 py-8 md:px-10 md:py-10">
+          <div className="rounded-sm border border-border bg-card/40 p-5 md:p-6">
+            <h3 className="text-xl font-semibold text-foreground md:text-2xl">
+              Aloqa Ma&apos;lumotlari
+            </h3>
+            <div className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
+              <p>Telefon: +998992167779</p>
+              <p>Telegram: @Nodirbek4744</p>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );
